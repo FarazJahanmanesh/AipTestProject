@@ -14,6 +14,7 @@ namespace Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
         {
         }
+        //create our models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
