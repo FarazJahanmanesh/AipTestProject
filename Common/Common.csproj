@@ -18,7 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\" />
+    <Folder Include="Dtos\Post\" />
+    <Folder Include="Dtos\User\" />
   </ItemGroup>
 
 </Project>

@@ -1,20 +1,19 @@
 ﻿using Common.Contracts.Repository.User;
+using Common.Contracts.Services.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Repository.User
+namespace Services.User
 {
-    public class UserRepository: IUserRepository
+    public class UserServices: IUserServices
     {
-        private readonly ApplicationDbContext _dbContext;
-        public UserRepository(ApplicationDbContext dbContext)
+        private readonly IUserRepository _repository;
+        public UserServices(IUserRepository repository)
         {
-
-            _dbContext = dbContext;
-
+            _repository=repository;
         }
         public async Task AddUserAsync() { }
         public async Task UpdateUserAsync() { }

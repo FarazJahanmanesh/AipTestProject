@@ -2,7 +2,7 @@
 
 namespace Entities
 {
-    public class User : BaseEntity<Guid>
+    public class User : BaseEntity<long>
     {
         [Required]
         [StringLength(100)]
