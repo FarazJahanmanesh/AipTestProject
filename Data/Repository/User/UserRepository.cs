@@ -1,4 +1,6 @@
 ﻿using Common.Contracts.Repository.User;
+using Common.Dtos.User;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +18,28 @@ namespace Data.Repository.User
             _dbContext = dbContext;
 
         }
-        public async Task AddUserAsync() { }
-        public async Task UpdateUserAsync() { }
-        public async Task GetUserAsync() { }
-        public async Task GetUserByIdAsync() { }
-        public async Task DeleteUserAsync() { }
+        public async Task AddUserAsync(AddUserDetailDto detailDto)
+        {
+            await _dbContext.Users.AddAsync(new Entities.User
+            {
+
+            });
+            await _dbContext.SaveChangesAsync();
+        }
+        public async Task UpdateUserAsync(UpdateUserDetailDto detailDto, int id)
+        {
+        }
+        public async Task GetUserAsync() 
+        {
+        
+        }
+        public async Task GetUserByIdAsync(int id) 
+        { 
+        
+        }
+        public async Task DeleteUserAsync(int id) 
+        {
+        
+        }
     }
 }

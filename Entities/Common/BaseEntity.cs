@@ -2,7 +2,6 @@
 {
     public interface IEntity
     {
-
     }
     public abstract class BaseEntity<TKey>:IEntity
     {

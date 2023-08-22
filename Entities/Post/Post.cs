@@ -10,7 +10,8 @@ namespace Entities
         public string Title { get; set; }
         public string Description { get; set; }
         public int CategoryId { get; set; }
-        public Guid UserId { get; set; }
+        public long UserId { get; set; }
+        public bool IsDeleted { get; set; }
         public User User { get; set; }
         public Category Category { get; set; }
     }

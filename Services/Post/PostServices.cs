@@ -1,6 +1,7 @@
 ﻿using Common.Contracts.Repository.Post;
 using Common.Contracts.Repository.User;
 using Common.Contracts.Services.Post;
+using Common.Dtos.Post;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,25 @@ namespace Services.Post
         {
             _repository = repository;
         }
-        public async Task AddPostAsync() { }
-        public async Task UpdatePostAsync() { }
-        public async Task GetPostAsync() { }
-        public async Task GetPostByIdAsync() { }
-        public async Task DeletePostAsync() { }
+        public async Task AddPostAsync(AddPostDetailDto detailDto)
+        {
+            await _repository.AddPostAsync(detailDto);
+        }
+        public async Task UpdatePostAsync(UpdatePostDetailDto detailDto, int id)
+        {
+            await _repository.UpdatePostAsync(detailDto,id);
+        }
+        public async Task<List<GetPostDetailDto>> GetPostAsync()
+        {
+            return await _repository.GetPostAsync();        
+        }
+        public async Task<GetPostDetailDto> GetPostByIdAsync(int id) 
+        {
+            return await _repository.GetPostByIdAsync(id);
+        }
+        public async Task DeletePostAsync(int id) 
+        {
+            await _repository.DeletePostAsync(id);
+        }
     }
 }
