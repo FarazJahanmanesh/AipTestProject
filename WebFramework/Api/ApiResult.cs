@@ -12,6 +12,7 @@ namespace WebFramework.Api
         public bool IsSuccess { get; set; }
         public ApiResultStatusCode StatusCode { get; set; }
         public string Message { get; set; }
+        public List<string> Errors { get; set; }
     }
     public class ApiResult<TData>:ApiResult
     {

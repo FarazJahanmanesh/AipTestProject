@@ -8,10 +8,9 @@ namespace WebFramework.Api
 {
     public enum ApiResultStatusCode
     {
-        Success,
-        ServerError,
-        BadRequest,
-        NotFound,
-        ListEmpty
+        Success=200,
+        ServerError=503,
+        BadRequest=400,
+        NotFound=404
     }
 }
