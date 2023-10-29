@@ -14,20 +14,22 @@ namespace Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
         {
         }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Post>Posts { get; set; }
-        public DbSet<Role>Roles { get; set; }
-        public DbSet<Category>Categories { get; set; }
+        #region add tables
+            public DbSet<User> Users { get; set; }
+            public DbSet<Post> Posts { get; set; }
+            public DbSet<Role> Roles { get; set; }
+            public DbSet<Category> Categories { get; set; }
+        #endregion
         //create our models
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
 
-            var entitiesAssembly = typeof(IEntity).Assembly;
-            modelBuilder.RegisterAllEntities<IEntity>(entitiesAssembly);
-            modelBuilder.RegisterEntityTypeConfiguration(entitiesAssembly);
-            modelBuilder.AddSequentialGuidForIdConvention();
-            modelBuilder.AddPluralizingTableNameConvention();
-        }
+        //    var entitiesAssembly = typeof(IEntity).Assembly;
+        //    modelBuilder.RegisterAllEntities<IEntity>(entitiesAssembly);
+        //    modelBuilder.RegisterEntityTypeConfiguration(entitiesAssembly);
+        //    modelBuilder.AddSequentialGuidForIdConvention();
+        //    modelBuilder.AddPluralizingTableNameConvention();
+        //}
     }
 }

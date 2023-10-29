@@ -12,30 +12,35 @@ namespace Services.Post
 {
     public class PostServices: IPostServices
     {
-        private readonly IPostRepository _repository;
-        public PostServices(IPostRepository repository)
-        {
-            _repository = repository;
-        }
-        public async Task AddPostAsync(AddPostDetailDto detailDto)
-        {
-            await _repository.AddPostAsync(detailDto);
-        }
-        public async Task UpdatePostAsync(UpdatePostDetailDto detailDto, int id)
-        {
-            await _repository.UpdatePostAsync(detailDto,id);
-        }
-        public async Task<List<GetPostDetailDto>> GetPostAsync()
-        {
-            return await _repository.GetPostAsync();        
-        }
-        public async Task<GetPostDetailDto> GetPostByIdAsync(int id) 
-        {
-            return await _repository.GetPostByIdAsync(id);
-        }
-        public async Task DeletePostAsync(int id) 
-        {
-            await _repository.DeletePostAsync(id);
-        }
+        #region ctor  
+            private readonly IPostRepository _repository;
+            public PostServices(IPostRepository repository)
+            {
+                _repository = repository;
+            }
+        #endregion
+        #region crud for postservice
+            public async Task AddPostAsync(AddPostDetailDto detailDto)
+            {
+                await _repository.AddPostAsync(detailDto);
+            }
+            public async Task UpdatePostAsync(UpdatePostDetailDto detailDto, int id)
+            {
+                await _repository.UpdatePostAsync(detailDto, id);
+            }
+            public async Task<List<GetPostDetailDto>> GetPostAsync()
+            {
+                return await _repository.GetPostAsync();
+            }
+            public async Task<GetPostDetailDto> GetPostByIdAsync(int id)
+            {
+                return await _repository.GetPostByIdAsync(id);
+            }
+            public async Task DeletePostAsync(int id)
+            {
+                await _repository.DeletePostAsync(id);
+            }
+
+        #endregion
     }
 }

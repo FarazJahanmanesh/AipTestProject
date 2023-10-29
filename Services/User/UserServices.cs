@@ -10,15 +10,21 @@ namespace Services.User
 {
     public class UserServices: IUserServices
     {
-        private readonly IUserRepository _repository;
-        public UserServices(IUserRepository repository)
-        {
-            _repository=repository;
-        }
-        public async Task AddUserAsync() { }
-        public async Task UpdateUserAsync() { }
-        public async Task GetUserAsync() { }
-        public async Task GetUserByIdAsync() { }
-        public async Task DeleteUserAsync() { }
+        #region ctor 
+            private readonly IUserRepository _repository;
+            public UserServices(IUserRepository repository)
+            {
+                _repository = repository;
+            }
+        #endregion
+
+        #region crud for UserServices
+            public async Task AddUserAsync() { }
+            public async Task UpdateUserAsync() { }
+            public async Task GetUserAsync() { }
+            public async Task GetUserByIdAsync() { }
+            public async Task DeleteUserAsync() { }
+        #endregion
+
     }
 }

@@ -12,10 +12,12 @@ namespace IOC.Dependencies
     {
         public static void RegisterServices(this IServiceCollection services)
         {
-            services.AddScoped<IPostRepository, PostRepository>();
-            services.AddScoped<IPostServices, PostServices>();
-            services.AddScoped<IPostRepository, PostRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
+            #region add Dependencies
+                services.AddScoped<IPostRepository, PostRepository>();
+                services.AddScoped<IPostServices, PostServices>();
+                services.AddScoped<IPostRepository, PostRepository>();
+                services.AddScoped<IUserRepository, UserRepository>();
+            #endregion
         }
     }
 }

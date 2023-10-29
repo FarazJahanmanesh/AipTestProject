@@ -11,35 +11,40 @@ namespace Data.Repository.User
 {
     public class UserRepository: IUserRepository
     {
-        private readonly ApplicationDbContext _dbContext;
-        public UserRepository(ApplicationDbContext dbContext)
-        {
-
-            _dbContext = dbContext;
-
-        }
-        public async Task AddUserAsync(AddUserDetailDto detailDto)
-        {
-            await _dbContext.Users.AddAsync(new Entities.User
+        #region ctor 
+            private readonly ApplicationDbContext _dbContext;
+            public UserRepository(ApplicationDbContext dbContext)
             {
 
-            });
-            await _dbContext.SaveChangesAsync();
-        }
-        public async Task UpdateUserAsync(UpdateUserDetailDto detailDto, int id)
-        {
-        }
-        public async Task GetUserAsync() 
-        {
-        
-        }
-        public async Task GetUserByIdAsync(int id) 
-        { 
-        
-        }
-        public async Task DeleteUserAsync(int id) 
-        {
-        
-        }
+                _dbContext = dbContext;
+
+            }
+        #endregion
+        #region crud for user
+            public async Task AddUserAsync(AddUserDetailDto detailDto)
+            {
+                await _dbContext.Users.AddAsync(new Entities.User
+                {
+
+                });
+                await _dbContext.SaveChangesAsync();
+            }
+            public async Task UpdateUserAsync(UpdateUserDetailDto detailDto, int id)
+            {
+            }
+            public async Task GetUserAsync()
+            {
+
+            }
+            public async Task GetUserByIdAsync(int id)
+            {
+
+            }
+            public async Task DeleteUserAsync(int id)
+            {
+
+            }
+
+        #endregion
     }
 }
