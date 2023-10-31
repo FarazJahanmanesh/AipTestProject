@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Common.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities
 {
@@ -18,12 +19,5 @@ namespace Entities
         public bool IsActive { get; set; }
         public DateTimeOffset DateTimeOffset { get; set; }
         public ICollection<Post> Posts { get; set; }
-    }
-    public enum GenderType
-    {
-        [Display(Name ="مرد")]
-        Male = 1,
-        [Display(Name = "زن")]
-        Female = 2
     }
 }
