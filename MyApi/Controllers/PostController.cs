@@ -21,7 +21,7 @@ namespace MyApi.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetPostById(int id)
         {
-            await _postServices.GetPostByIdAsync();
+            await _postServices.GetPostByIdAsync(id);
             return Ok();
         }
         [HttpPost]
@@ -37,9 +37,9 @@ namespace MyApi.Controllers
             return Ok();
         }
         [HttpDelete]
-        public async Task<IActionResult> DeletePostAsync()
+        public async Task<IActionResult> DeletePostAsync(int id)
         {
-            await _postServices.DeletePostAsync();
+            await _postServices.DeletePostAsync(id);
             return Ok();
         }
     }
