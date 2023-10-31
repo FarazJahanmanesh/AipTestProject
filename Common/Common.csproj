@@ -18,6 +18,7 @@
     </PackageReference>
     <PackageReference Include="Pluralize.NET" Version="1.0.2" />
     <PackageReference Include="PluralizeService.Core" Version="1.2.21147.2" />
+    <PackageReference Include="XAct.Core.PCL" Version="0.0.5014" />
   </ItemGroup>
 
   <ItemGroup>
