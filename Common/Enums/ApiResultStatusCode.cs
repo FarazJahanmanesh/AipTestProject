@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-S
+
 namespace WebFramework.Api
 {
     public enum ApiResultStatusCode

@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Business\Post\" />
+    <Folder Include="Business\User\" />
+  </ItemGroup>
+
 </Project>

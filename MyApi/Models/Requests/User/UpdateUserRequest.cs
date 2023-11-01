@@ -1,13 +1,8 @@
 ﻿using Common.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Common.Dtos.User
+namespace MyApi.Models.Requests.User
 {
-    public class UpdateUserDetailDto
+    public class UpdateUserRequest
     {
         public int Id { get; set; }
         public string UserName { get; set; }

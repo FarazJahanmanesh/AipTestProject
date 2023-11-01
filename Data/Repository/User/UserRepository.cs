@@ -28,9 +28,9 @@ namespace Data.Repository.User
             });
             await SaveChanges();
         }
-        public async Task UpdateUserAsync(UpdateUserDetailDto detailDto, int id)
+        public async Task UpdateUserAsync(UpdateUserDetailDto detailDto)
         {
-            var user = await _dbContext.Users.FirstOrDefaultAsync(c => c.Id == id);
+            var user = await _dbContext.Users.FirstOrDefaultAsync(c => c.Id == detailDto.Id);
             user.Age = detailDto.Age;
             user.Gender=detailDto.Gender;
             detailDto.UserName = detailDto.UserName;
