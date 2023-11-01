@@ -20,6 +20,10 @@ namespace Data.Repository.Post
         #endregion
 
         #region crud for posts  
+            private async Task SaveChang()
+            {
+                await _dbContext.SaveChangesAsync();
+            }
             public async Task AddPostAsync(AddPostDetailDto detailDto)
             {
                 await _dbContext.Posts.AddAsync(new Entities.Post
@@ -30,7 +34,7 @@ namespace Data.Repository.Post
                     UserId = detailDto.UserId,
                     CategoryId = detailDto.CategoryId
                 });
-                await _dbContext.SaveChangesAsync();
+                await SaveChang();
             }
             public async Task UpdatePostAsync(UpdatePostDetailDto detailDto, int id)
             {
@@ -38,8 +42,8 @@ namespace Data.Repository.Post
                 post.Title = detailDto.Title;
                 post.Description = detailDto.Description;
                 post.CategoryId = detailDto.CategoryId;
-                await _dbContext.SaveChangesAsync();
-            }
+            await SaveChang();
+        }
             public async Task<List<GetPostDetailDto>> GetPostAsync()
             {
                 List<GetPostDetailDto> allPosts = new List<GetPostDetailDto>();
@@ -71,8 +75,8 @@ namespace Data.Repository.Post
             {
                 var post = await _dbContext.Posts.Where(c => c.Id == id && c.IsDeleted == false).SingleOrDefaultAsync();
                 post.IsDeleted = true;
-                await _dbContext.SaveChangesAsync();
-            }
+                await SaveChang();
+            }                                                                                                                                                                                                                                                                                                                                                                                                                                                     
         #endregion
-    }
+    }   
 }
