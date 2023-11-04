@@ -3,6 +3,7 @@ using IOC.Dependencies;
 using Data;
 using Services.Helper;
 using ElmahCore.Mvc;
+using ElmahCore.Sql;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,10 +24,10 @@ builder.Services.RegisterServices();
 var connectionString = builder.Configuration.GetConnectionString("SqlServer");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddElmah(options =>
+builder.Services.AddElmah<SqlErrorLog>(options =>
 {
     options.Path = "/ErrorLog";
-    options.ConnectionString = connectionString;
+    options.ConnectionString = builder.Configuration.GetConnectionString("Elmah");
 });
 var app = builder.Build();
 
