@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using IOC.Dependencies;
 using Data;
+using Services.Helper;
+using ElmahCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// add config for automappe
+builder.Services.AddAutoMapper(typeof(AutoMapperConfiguration).Assembly);
+
 //add the DI
 builder.Services.RegisterServices();
 
@@ -18,6 +23,11 @@ builder.Services.RegisterServices();
 var connectionString = builder.Configuration.GetConnectionString("SqlServer");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
+builder.Services.AddElmah(options =>
+{
+    options.Path = "/ErrorLog";
+    options.ConnectionString = connectionString;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,8 +38,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 app.MapControllers();
+app.UseElmah();
 
 app.Run();

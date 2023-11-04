@@ -11,4 +11,9 @@
     <Folder Include="Business\User\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="ElmahCore" Version="2.1.2" />
+    <PackageReference Include="ElmahCore.Sql" Version="2.1.2" />
+  </ItemGroup>
+
 </Project>
