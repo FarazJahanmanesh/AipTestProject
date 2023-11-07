@@ -1,5 +1,5 @@
-﻿using Common.Contracts.Repository.Post;
-using Common.Dtos.Post;
+﻿using Common.Dtos.Post;
+using Entities.Contracts.Repository.Post;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

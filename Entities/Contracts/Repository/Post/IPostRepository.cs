@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Contracts.Services.Post
+namespace Entities.Contracts.Repository.Post
 {
-    public interface IPostServices
+    public interface IPostRepository
     {
         public Task AddPostAsync(AddPostDetailDto detailDto);
         public Task UpdatePostAsync(UpdatePostDetailDto detailDto, int id);

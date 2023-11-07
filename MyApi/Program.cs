@@ -4,6 +4,7 @@ using Data;
 using Services.Helper;
 using ElmahCore.Mvc;
 using ElmahCore.Sql;
+using Services.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,11 +25,11 @@ builder.Services.RegisterServices();
 var connectionString = builder.Configuration.GetConnectionString("SqlServer");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddElmah<SqlErrorLog>(options =>
-{
-    options.Path = "/ErrorLog";
-    options.ConnectionString = builder.Configuration.GetConnectionString("Elmah");
-});
+//builder.Services.AddElmah<SqlErrorLog>(options =>
+//{
+//    options.Path = "/ErrorLog";
+//    options.ConnectionString = builder.Configuration.GetConnectionString("Elmah");
+//});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -39,8 +40,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseAuthorization();
 app.MapControllers();
-app.UseElmah();
+//app.UseElmah();
 
 app.Run();

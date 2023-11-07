@@ -1,6 +1,8 @@
-﻿using Common.Contracts.Services.User;
+﻿using Entities.Contracts.Services.User;
 using Microsoft.AspNetCore.Mvc;
 using MyApi.Models.Requests.User;
+using Services.Contracts;
+using Services.Helper;
 
 namespace MyApi.Controllers
 {
@@ -8,11 +10,25 @@ namespace MyApi.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly IJwtService _jwtService;
         private readonly IUserServices _userServices;
-        public UserController(IUserServices userServices)
+        public UserController(IUserServices userServices, IJwtService jwtService)
         {
-            _userServices=userServices;
+            _jwtService = jwtService;
+            _userServices = userServices;
         }
+
+
+        [HttpGet]
+        [Route("GenrateToken")]
+        public async Task<IActionResult> GenrateToken()
+        {
+            var user = await _userServices.GetUserByIdAsync(2);
+            var token = await _jwtService.Generate(user);
+            return Ok(token);
+        }
+
+
         [HttpGet]
         public async Task<IActionResult> GetUser()
         {

@@ -1,5 +1,5 @@
-﻿using Common.Contracts.Repository.User;
-using Common.Dtos.User;
+﻿using Common.Dtos.User;
+using Entities.Contracts.Repository.User;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data.Repository.User
@@ -46,9 +46,9 @@ namespace Data.Repository.User
         {
             await _dbContext.Users.AsNoTracking().ToListAsync();
         }
-        public async Task GetUserByIdAsync(int id)
+        public async Task<Entities.User> GetUserByIdAsync(int id)
         {
-            await _dbContext.Users.AsNoTracking().FirstOrDefaultAsync(c=>c.Id==id);
+            return await _dbContext.Users.AsNoTracking().FirstOrDefaultAsync(c=>c.Id==id);
         }
         public async Task DeleteUserAsync(int id)
         {

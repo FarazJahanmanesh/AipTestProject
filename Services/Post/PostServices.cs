@@ -1,7 +1,6 @@
-﻿using Common.Contracts.Repository.Post;
-using Common.Contracts.Repository.User;
-using Common.Contracts.Services.Post;
-using Common.Dtos.Post;
+﻿using Common.Dtos.Post;
+using Entities.Contracts.Repository.Post;
+using Entities.Contracts.Services.Post;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,5 +1,5 @@
-﻿using Common.Contracts.Services.Post;
-using Common.Dtos.Post;
+﻿using Common.Dtos.Post;
+using Entities.Contracts.Services.Post;
 using Microsoft.AspNetCore.Mvc;
 using MyApi.Models.Requests;
 using MyApi.Models.Requests.Post;
