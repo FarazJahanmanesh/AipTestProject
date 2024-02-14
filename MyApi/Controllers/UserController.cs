@@ -30,19 +30,22 @@ namespace MyApi.Controllers
 
 
         [HttpGet]
+        [Route("GetUser")]
         public async Task<IActionResult> GetUser()
         {
             await _userServices.GetUserAsync();
             return Ok();
         }
-        [HttpGet("{id:long}")]
+        [HttpGet]
+        [Route("GetUserById/{id}")]
         public async Task<IActionResult> GetUserById(int id)
         {
             await _userServices.GetUserByIdAsync(id);
             return Ok();
         }
         [HttpPost]
-        public async Task<IActionResult> CreateUserRequest(CreateUserRequest request)
+        [Route("GetUser")]
+        public async Task<IActionResult> CreateUserRequest([FromBody]CreateUserRequest request)
         {
             await _userServices.AddUserAsync(new Common.Dtos.User.AddUserDetailDto
             {
@@ -57,7 +60,8 @@ namespace MyApi.Controllers
             return Ok();
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateUserRequest(UpdateUserRequest request)
+        [Route("UpdateUserRequest")]
+        public async Task<IActionResult> UpdateUserRequest([FromBody]UpdateUserRequest request)
         {
             await _userServices.UpdateUserAsync(new Common.Dtos.User.UpdateUserDetailDto
             {
@@ -71,6 +75,7 @@ namespace MyApi.Controllers
             return Ok();
         }
         [HttpDelete]
+        [Route("DeleteUserAsync/{id}")]
         public async Task<IActionResult> DeleteUserAsync(int id)
         {
             await _userServices.DeleteUserAsync(id);

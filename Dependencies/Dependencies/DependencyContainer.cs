@@ -17,11 +17,13 @@ namespace IOC.Dependencies
         public static void RegisterServices(this IServiceCollection services)
         {
             #region add Dependencies
+
             services.AddScoped<IPostServices, PostServices>();
             services.AddScoped<IUserServices, UserServices>();
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IJwtService, JwtService>();
+
             #endregion
         }
     }
