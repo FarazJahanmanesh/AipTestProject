@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,15 +8,43 @@ using System.Xml.Linq;
 
 namespace WebFramework.Api
 {
-    public class ApiResult
+    public class ActionResponse<T> : IActionResponse
     {
-        public bool IsSuccess { get; set; }
-        public ApiResultStatusCode StatusCode { get; set; }
-        public string Message { get; set; }
+        public ActionResponse()
+        {
+            Errors = new List<string>();
+        }
+
+        public T Data { get; set; }
+        public ResponseStateEnum State { get; set; }
         public List<string> Errors { get; set; }
     }
-    public class ApiResult<TData>:ApiResult
+
+    public class ValidationActionResponse<T>
     {
-        public TData Data { get; set; }
+        public ValidationActionResponse()
+        {
+        }
+
+        public T Data { get; set; }
+        public ResponseStateEnum State { get; set; }
+        public Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary Errors { get; set; }
+    }
+
+    public class ActionResponse : IActionResponse
+    {
+        public ActionResponse()
+        {
+            Errors = new List<string>();
+        }
+
+        public ResponseStateEnum State { get; set; }
+        public List<string> Errors { get; set; }
+    }
+
+    public interface IActionResponse
+    {
+        ResponseStateEnum State { get; set; }
+        List<string> Errors { get; set; }
     }
 }

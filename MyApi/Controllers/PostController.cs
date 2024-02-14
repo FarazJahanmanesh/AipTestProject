@@ -23,7 +23,7 @@ namespace MyApi.Controllers
             return Ok();
         }
         [HttpGet]
-        [Route("GetPostById/{id:int}")]
+        [Route("GetPostById/{id}")]
         public async Task<IActionResult> GetPostById(int id)
         {
             await _postServices.GetPostByIdAsync(id);
@@ -55,7 +55,7 @@ namespace MyApi.Controllers
             return Ok();
         }
         [HttpDelete]
-        [Route("DeletePost/{id:int}")]
+        [Route("DeletePost/{id}")]
         public async Task<IActionResult> DeletePost(int id)
         {
             await _postServices.DeletePostAsync(id);
