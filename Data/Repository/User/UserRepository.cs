@@ -7,11 +7,13 @@ namespace Data.Repository.User
     public class UserRepository: IUserRepository
     {
         #region ctor 
+
         private readonly ApplicationDbContext _dbContext;
         public UserRepository(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
+
         #endregion
         #region crud for user
         public async Task AddUserAsync(AddUserDetailDto detailDto)

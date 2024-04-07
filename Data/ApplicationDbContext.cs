@@ -15,10 +15,12 @@ namespace Data
         {
         }
         #region add tables
+
             public DbSet<User> Users { get; set; }
             public DbSet<Post> Posts { get; set; }
             public DbSet<Role> Roles { get; set; }
             public DbSet<Category> Categories { get; set; }
+
         #endregion
         //create our models
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
